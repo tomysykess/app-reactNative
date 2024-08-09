@@ -14,6 +14,7 @@ import {
 } from "react-native";
 import { useState } from "react";
 import MyModal from "./components/MyModal";
+import ListaItems from "./components/ListaItems";
 
 export default function App() {
   const [number, setNumber] = useState<string>("");
@@ -92,22 +93,11 @@ export default function App() {
           }}
           style={imageStyles.image}
         />
-
-        <FlatList
-          data={itemList}
-          renderItem={({ item }) => (
-            <View>
-              <Text onPress={() => openModal(item.id)} style={styles.listItem}>
-                {item.value}
-              </Text>
-              <MyModal
-                modalVisible={selectedItemId === item.id}
-                setModalVisible={closeModal}
-                name={item.value}
-              />
-            </View>
-          )}
-          keyExtractor={(item) => item.id}
+        <ListaItems
+          openModal={openModal}
+          closeModal={closeModal}
+          itemList={itemList}
+          selectedItemId={selectedItemId}
         />
       </SafeAreaView>
       <StatusBar style="auto" />
