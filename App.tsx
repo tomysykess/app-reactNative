@@ -11,6 +11,7 @@ import {
   View,
   Modal,
   Pressable,
+  ScrollView,
 } from "react-native";
 import { useState } from "react";
 import MyModal from "./components/MyModal";
@@ -60,6 +61,7 @@ export default function App() {
     <View style={styles.container}>
       <SafeAreaView>
         <Text style={textStyles.header}>Componente Core #1</Text>
+
         <View style={styles.inputContainer}>
           <TextInput
             placeholder="Insertar Texto"
